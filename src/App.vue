@@ -1,8 +1,8 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
     <router-link to="/movies">Movies</router-link>
+    <router-link to="/about">About</router-link> |
   </div>
   <router-view />
 </template>
@@ -27,6 +27,7 @@ body {
   background-color: var(--color-secondary);
   display: flex;
   padding: 20px 30px;
+  box-sizing: border-box;
 }
 
 #nav a {

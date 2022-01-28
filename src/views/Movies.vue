@@ -1,8 +1,13 @@
 <template>
   <div class="movies-view">
-    <div class="header">This is a movie page</div>
+    <div class="header">Listed movies</div>
     <div class="movies">
-      <div v-for="(movie, i) in movies" :key="i" class="movie">
+      <div
+        @click="selectMovie(movie)"
+        v-for="(movie, i) in movies"
+        :key="i"
+        class="movie"
+      >
         <img :src="movie.Images[0]" alt="" class="image" />
         <div class="title">{{ movie.Title }}</div>
       </div>
@@ -20,7 +25,12 @@ export default {
       movies: movieList,
     };
   },
-  created() {},
+  methods: {
+    selectMovie(movie) {
+      this.$store.dispatch('setMovie', movie);
+      this.$router.push('/movieDetail');
+    },
+  },
 };
 </script>
 
