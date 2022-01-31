@@ -5,7 +5,9 @@
     <router-link v-if="getUser.username !== 'admin'" to="/login"
       >Login</router-link
     >
-    |
+    <router-link v-if="getUser.username === 'admin'" to="/ownMovies"
+      >Your movies</router-link
+    >
   </div>
   <router-view />
 </template>

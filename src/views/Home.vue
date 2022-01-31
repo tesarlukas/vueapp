@@ -3,7 +3,7 @@
     <Introduction
       class="introduction"
       msg="Hello there! This project serves as a simple demonstration of what is Vue
-      3 capable of. For more information click here."
+      3 capable of. You need to login to have a full access to this application."
     />
   </div>
 </template>

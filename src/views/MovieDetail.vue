@@ -9,6 +9,23 @@
       <div class="row">Writers: {{ getMovie.Writer }}</div>
       <div class="row">Country: {{ getMovie.Country }}</div>
       <div class="plot row">Plot: {{ getMovie.Plot }}</div>
+      <button
+        @click="addOwnMovie(getMovie)"
+        v-if="getUser.username === 'admin'"
+        type="submit"
+      >
+        Add to my list
+      </button>
+      <button
+        @click="removeOwnMovie(getMovie)"
+        v-if="
+          getUser.username === 'admin' &&
+          getOwnMovies.find((movie) => movie.imdbID === getMovie.imdbID)
+        "
+        type="submit"
+      >
+        Remove from my list
+      </button>
     </div>
     <div class="gallery">
       <img v-for="(image, i) in getMovie.Images" :key="i" :src="image" alt="" />
@@ -17,16 +34,20 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'MovieDetail',
   computed: {
     ...mapGetters({
       getMovie: 'GET_MOVIE',
+      getUser: 'GET_USER',
+      getOwnMovies: 'GET_OWNMOVIES',
     }),
   },
-  methods: {},
+  methods: {
+    ...mapActions(['addOwnMovie', 'removeOwnMovie']),
+  },
 };
 </script>
 
