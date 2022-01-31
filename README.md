@@ -10,6 +10,12 @@ npm install
 npm run serve
 ```
 
+### Login credentials
+```
+username: admin
+password: 1234
+```
+
 ### Compiles and minifies for production
 ```
 npm run build
