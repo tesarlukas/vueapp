@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import movieList from '../../../movies.json';
+import movieList from '../assets/movies.json';
 
 export default {
   name: 'Movies',

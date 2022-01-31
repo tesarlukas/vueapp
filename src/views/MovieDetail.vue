@@ -7,13 +7,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'MovieDetail',
   computed: {
-    getMovie() {
-      return this.$store.getters.GET_MOVIE;
-    },
+    ...mapGetters({
+      getMovie: 'GET_MOVIE',
+    }),
   },
+  methods: {},
 };
 </script>
 
