@@ -1,11 +1,25 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/movies">Movies</router-link>
-    <router-link to="/about">About</router-link> |
+    <router-link to="/movies">Movies</router-link> |
+    <router-link v-if="getUser.username !== 'admin'" to="/login"
+      >Login</router-link
+    >
+    |
   </div>
   <router-view />
 </template>
+
+<script>
+import { mapGetters } from 'vuex';
+
+export default {
+  name: 'App',
+  computed: {
+    ...mapGetters({ getUser: 'GET_USER' }),
+  },
+};
+</script>
 
 <style lang="scss">
 @import './assets/styles/global.scss';
